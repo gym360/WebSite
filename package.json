@@ -1,0 +1,11 @@
+{
+  "name": "gym360.com.br",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "http-server ./",
+    "build": "echo 'No build step needed for static HTML'"
+  },
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
