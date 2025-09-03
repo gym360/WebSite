@@ -45,5 +45,23 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-
-
+// Form submission handling with redirect
+document.querySelectorAll('form[data-redirect]').forEach((form) => {
+  form.addEventListener('submit', (e) => {
+    const redirectUrl = form.getAttribute('data-redirect');
+    if (redirectUrl) {
+      // Store form data in sessionStorage for potential use
+      const formData = new FormData(form);
+      const formObject = {};
+      formData.forEach((value, key) => {
+        formObject[key] = value;
+      });
+      sessionStorage.setItem('gym360_contact_data', JSON.stringify(formObject));
+      
+      // Redirect after a short delay to allow form submission
+      setTimeout(() => {
+        window.location.href = redirectUrl;
+      }, 1000);
+    }
+  });
+});
